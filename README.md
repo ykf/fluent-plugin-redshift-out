@@ -14,7 +14,7 @@ Amazon Redshift output plugin uploads event logs to an Amazon Redshift Cluster. 
 Format:
 
     <match my.tag>
-        type redshift
+        type redshift-out
 
         # s3 (for copying data to redshift)
         aws_key_id YOUR_AWS_KEY_ID
@@ -52,7 +52,7 @@ Example (watch and upload json formatted apache log):
     </source>
 
     <match redshift.json>
-        type redshift
+        type redshift-out
 
         # s3 (for copying data to redshift)
         aws_key_id YOUR_AWS_KEY_ID
@@ -78,7 +78,7 @@ Example (watch and upload json formatted apache log):
         buffer_chunk_limit 1g
     <match>
 
-+ `type` (required) : The value must be `redshift`.
++ `type` (required) : The value must be `redshift-out`.
 
 + `aws_key_id` (required) : AWS access key id to access s3 bucket.
 

@@ -2,7 +2,7 @@ module Fluent
 
 
 class RedshiftOutput < BufferedOutput
-  Fluent::Plugin.register_output('redshift', self)
+  Fluent::Plugin.register_output('redshift-out', self)
 
   # ignore load table error. (invalid data format)
   IGNORE_REDSHIFT_ERROR_REGEXP = /^ERROR:  Load into table '[^']+' failed\./
