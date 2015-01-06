@@ -17,7 +17,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency "fluentd", "~> 0.10.0"
-  gem.add_dependency "aws-sdk", ">= 1.6.3"
+  gem.add_dependency "aws-sdk", "~> 1.60"
+  gem.add_dependency "multi_json", "~> 1.10"
+  gem.add_dependency "oj", "~> 2.11"
   gem.add_dependency "pg", "~> 0.17.0"
   gem.add_development_dependency "rake"
   gem.add_development_dependency "simplecov", ">= 0.5.4"

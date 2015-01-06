@@ -2,7 +2,7 @@ module Fluent
 
 
 class RedshiftOutput < BufferedOutput
-  Fluent::Plugin.register_output('redshift', self)
+  Fluent::Plugin.register_output('redshift-out', self)
 
   # ignore load table error. (invalid data format)
   IGNORE_REDSHIFT_ERROR_REGEXP = /^ERROR:  Load into table '[^']+' failed\./
@@ -14,8 +14,10 @@ class RedshiftOutput < BufferedOutput
     require 'time'
     require 'tempfile'
     require 'pg'
-    require 'json'
     require 'csv'
+    require 'multi_json'
+    require 'oj'
+    ::MultiJson.use(:oj)
   end
 
   config_param :record_log_tag, :string, :default => 'log'
@@ -228,7 +230,7 @@ class RedshiftOutput < BufferedOutput
   def json_to_hash(json_text)
     return nil if json_text.to_s.empty?
 
-    JSON.parse(json_text)
+    MultiJson.load(json_text)
   rescue => e
     $log.warn format_log("failed to parse json. "), :error => e.to_s
     nil
@@ -240,7 +242,7 @@ class RedshiftOutput < BufferedOutput
     # extract values from hash
     val_list = redshift_table_columns.collect do |cn|
       val = hash[cn]
-      val = JSON.generate(val) if val.kind_of?(Hash) or val.kind_of?(Array)
+      val = MultiJson.dump(val) if val.kind_of?(Hash) or val.kind_of?(Array)
 
       if val.to_s.empty?
         nil
