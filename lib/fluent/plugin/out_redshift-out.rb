@@ -22,8 +22,8 @@ class RedshiftOutput < BufferedOutput
 
   config_param :record_log_tag, :string, :default => 'log'
   # s3
-  config_param :aws_key_id, :string
-  config_param :aws_sec_key, :string
+  config_param :aws_key_id, :string, :default => nil
+  config_param :aws_sec_key, :string, :default => nil
   config_param :s3_bucket, :string
   config_param :s3_region, :string, :default => nil
   config_param :path, :string, :default => ""
