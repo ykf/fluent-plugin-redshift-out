@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["nao.bear@gmail.com"]
   gem.description   = %q{Amazon Redshift output plugin for Fluentd}
   gem.summary       = gem.description
-  gem.homepage      = "https://github.com/sakuma/fluent-plugin-redshift"
+  gem.homepage      = "https://github.com/sakuma/fluent-plugin-redshift-out"
   gem.has_rdoc      = false
 
   gem.files         = `git ls-files`.split($/)
