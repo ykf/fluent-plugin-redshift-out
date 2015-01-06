@@ -2,13 +2,13 @@
 $:.push File.expand_path('../lib', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name          = "fluent-plugin-redshift"
+  gem.name          = "fluent-plugin-redshift-out"
   gem.version       = File.read("VERSION").strip
-  gem.authors       = ["Masashi Miyazaki"]
-  gem.email         = ["mmasashi@gmail.com"]
+  gem.authors       = ["Naohiro Sakuma"]
+  gem.email         = ["nao.bear@gmail.com"]
   gem.description   = %q{Amazon Redshift output plugin for Fluentd}
   gem.summary       = gem.description
-  gem.homepage      = "https://github.com/hapyrus/fluent-plugin-redshift"
+  gem.homepage      = "https://github.com/sakuma/fluent-plugin-redshift-out"
   gem.has_rdoc      = false
 
   gem.files         = `git ls-files`.split($/)
